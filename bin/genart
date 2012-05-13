@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+
+var
+	genart = require('../lib/genart'),
+	fs = require('fs'),
+	art,
+	argv;
+
+argv = require('optimist')
+	.demand(['f'])
+	.argv;
+
+art = genart();
+
+fs.writeFile(argv.f, art.buffer());

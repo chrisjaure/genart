@@ -22,6 +22,7 @@
 		}
 	],
 	"main": "lib/genart",
+	"bin": "bin/genart",
 	"engines": {
 		"node": "~0.6.17"
 	},
