@@ -34,5 +34,5 @@
 		"color": ">= 0.4"
 	},
 	"devDependencies": {},
-	"keywords": []
+	"keywords": ["art", "generative"]
 }

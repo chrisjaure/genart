@@ -15,18 +15,42 @@ canvas = genart(require('paper'), {
 	height: 500
 });
 
-var circle = new canvas.Path.Circle(new canvas.Point(80, 50), 35);
-circle.fillColor = 'red';
-
-var circle2 = new canvas.Path.Circle(new canvas.Point(120, 50), 35);
+var circle2 = new canvas.Path.Circle(new canvas.Point(0, 0), 50);
 circle2.style = {
     fillColor: 'blue',
     strokeColor: 'green',
-    strokeWidth: 10
+    strokeWidth: 5
 };
 
-// Make circle2 50% transparent:
-circle2.opacity = 0.5;
+circle2.opacity = 0.1;
+
+var x = 0, y = 0;
+canvas.repeat(circle2, function(path, i) {
+
+	if (i > 120) {
+		return false;
+	}
+
+	x++;
+
+	if (x > 10) {
+		x = 0;
+		y++;
+	}
+
+	path.scale(i % 2 + 1);
+
+	path.position.x = path.position.x + x * (path.bounds.width / 2);
+	path.position.y = path.position.y + y * (path.bounds.height / 2);
+	// path.rotate(18 * i, path.bounds.topLeft);
+
+	if (i % 11 === 0) {
+		path.style.fillColor = 'yellow';
+	}
+
+	return true;
+
+});
 
 canvas.setBackgroundColor('#FF8745');
 
