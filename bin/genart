@@ -3,13 +3,31 @@
 var
 	genart = require('../lib/genart'),
 	fs = require('fs'),
-	art,
+	canvas,
 	argv;
 
 argv = require('optimist')
 	.demand(['f'])
 	.argv;
 
-art = genart();
+canvas = genart(require('paper'), {
+	width: 500,
+	height: 500
+});
 
-fs.writeFile(argv.f, art.buffer());
+var circle = new canvas.Path.Circle(new canvas.Point(80, 50), 35);
+circle.fillColor = 'red';
+
+var circle2 = new canvas.Path.Circle(new canvas.Point(120, 50), 35);
+circle2.style = {
+    fillColor: 'blue',
+    strokeColor: 'green',
+    strokeWidth: 10
+};
+
+// Make circle2 50% transparent:
+circle2.opacity = 0.5;
+
+canvas.setBackgroundColor('#FF8745');
+
+fs.writeFile(argv.f, canvas.buffer());
