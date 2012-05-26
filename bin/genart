@@ -37,8 +37,10 @@ function main () {
 	switch(argv.type) {
 		case 'circle':
 			circleArt();
+			break;
 		case 'triangle':
 			triangeArt();
+			break;
 	}
 
 	fs.writeFile(argv.file, canvas.buffer());
@@ -117,29 +119,21 @@ function triangeArt () {
 
 	var triangle2 = triangle.clone();
 	triangle2.fillColor = '#C1E6F0';
-	triangle2.opacity = 0.8;
+	triangle2.opacity = 0.75;
 	triangle2.blendMode = 'screen';
+	triangle2.translate(new canvas.Point(0,-43));
 
-	var triangle3 = new canvas.Path.RegularPolygon(new canvas.Point(0,0), 3, 25);
-	triangle3.style = {
-		strokeWidth: 1,
-		strokeColor: '#fff'
-	};
-	triangle3.rotate(90);
-	triangle3.opacity = 0.2;
+	var triangle3 = triangle.clone();
+	triangle3.opacity = 0.1;
 	triangle3.fillColor = 'red';
-	triangle3.blendMode = 'screen';
+	triangle3.scale(0.5);
 
 	var triangle4 = triangle3.clone();
 	triangle4.rotate(180);
 	triangle4.fillColor = 'orange';
 
-	canvas.tile(triangle3, function(item, i) {
-		item.translate(new canvas.Point(18,0));
-	});
-	canvas.tile(triangle4, function(item, i) {
-		item.translate(new canvas.Point(18,0));
-	});
+	canvas.tile(triangle3);
+	canvas.tile(triangle4);
 
 	canvas.tile(triangle, function(item, i) {
 		var c = color.clone();
@@ -152,7 +146,6 @@ function triangeArt () {
 	});
 
 	canvas.tile(triangle2, function(item, i) {
-		item.translate(new canvas.Point(-75,-43));
 		if (i % 2) {
 			item.rotate(180);
 		}
