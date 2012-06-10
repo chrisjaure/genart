@@ -1,0 +1,21 @@
+canvas {
+	width: 600px;
+	height: 400px;
+	background: 'pink';
+}
+
+#hexagon {
+	shape: polygon;
+	point: 0 0;
+	sides: 6;
+	radius: 50;
+	opacity: 0.15;
+	border: solid 1px #fff;
+	transform: rotate(90deg);
+
+	repeat: repeat;
+}
+
+#hexagon:nth-child(n+1) {
+	transform: rotate(90deg);
+}
