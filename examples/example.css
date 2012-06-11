@@ -4,18 +4,45 @@ canvas {
 	background: 'pink';
 }
 
-#hexagon {
-	shape: polygon;
-	point: 0 0;
-	sides: 6;
-	radius: 50;
-	opacity: 0.15;
-	border: solid 1px #fff;
-	transform: rotate(90deg);
-
+raster#background {
+	content: url(/home/chris/Downloads/bgnoise_lg.png);
+	opacity: 0.5;
+	blend-mode: 'multiply';
 	repeat: repeat;
 }
 
-#hexagon:nth-child(n+1) {
-	transform: rotate(90deg);
+circle#c1 {
+	radius: 50;
+	opacity: 0.2;
+	border: solid 2px green;
+	blend-mode: overlay;
+	background: red;
+	repeat: repeat;
+}
+	#c1:nth-child(14n) {
+		background: yellow;
+	}
+	#c1:nth-child(6n),
+	#c1:nth-child(5n) {
+		display:none;
+	}
+
+circle#c2 {
+	@extend: #c1;
+	radius: 25;
+	background: blue;
+	opacity: random(0.1, 0.3);
+}
+	#c2:nth-child(14n) {
+		background: yellow;
+	},
+	#c2:nth-child(6n) {
+		transform: scale(0.5);
+	}
+
+
+circle#c3 {
+	@extend: #c1;
+	radius: 150;
+	background: orange;
 }
