@@ -5,7 +5,6 @@ var
 	fs = require('fs'),
 	vm = require('vm'),
 	path = require('path'),
-	parser = require('../css'),
 	canvas,
 	argv;
 
@@ -16,8 +15,8 @@ argv = require('optimist')
 			demand: true,
 			describe: 'Save the png output here.'
 		},
-		s: {
-			alias: 'script',
+		i: {
+			alias: 'in',
 			demand: true,
 			describe: 'File to use to generate art.'
 		},
@@ -32,7 +31,7 @@ main();
 
 function main () {
 
-	fs.readFile(argv.script, function(err, file) {
+	fs.readFile(argv['in'], function(err, file) {
 
 		if (err) {
 			throw err;
@@ -42,21 +41,19 @@ function main () {
 			canvas: genart(require('paper'), {
 				width: 600,
 				height: 400
-			})
+			}),
+			argv: argv
 		};
 
-		if (path.extname(argv.script) == '.css') {
-
+		if (path.extname(argv['in']) == '.css') {
+			// TODO: perhaps implement this
 		}
-
-		vm.runInNewContext(file, sandbox, argv.script);
+		else {
+			vm.runInNewContext(file, sandbox, argv['in']);
+		}
 
 		fs.writeFile(argv.out, sandbox.canvas.buffer());
 
 	});
 
-}
-
-function() {
-	
 }
