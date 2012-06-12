@@ -1,40 +1,24 @@
-var texture = new canvas.Raster('/home/chris/Downloads/bgnoise_lg.png');
-texture.blendMode = 'multiply';
-texture.opacity = 0.5;
-texture.tile();
-/*
-new Raster({
-	file: '/home/chris/Downloads/bgnoise_lg.png',
-	blendMode: 'multiply',
-	opacity: 0.5;
-}).tile();
-*/
+new canvas.Raster('/home/chris/Downloads/bgnoise_lg.png')
+	.set({
+		blendMode: 'multiply',
+		opacity: 0.5
+	})
+	.tile();
 
-var circle = new canvas.Path.Circle(new canvas.Point(0, 0), 50);
-circle.style = {
-	fillColor: 'red',
-	strokeColor: 'green',
-	strokeWidth: 2
-};
-circle.opacity = 0.2;
-circle.blendMode = 'overlay';
-/*
-var circle = new Circle({
-	point: [0,0],
-	radius: 50,
-	fillColor: 'red',
-	strokeColor: 'green',
-	strokeWidth: 2,
-	opacity: 0.2,
-	blendMode: 'overlay'
-})
-*/
+var circle = new canvas.Path.Circle([0, 0], 50)
+	.set({
+		fillColor: 'red',
+		strokeColor: 'green',
+		strokeWidth: 2,
+		opacity: 0.2,
+		blendMode: 'overlay'
+	});
 
-var circle2 = circle.clone();
-circle2.scale(0.5);
-circle2.style.fillColor = 'blue';
-
-circle2
+circle.clone()
+	.set({
+		scale: 0.5,
+		fillColor: 'blue'
+	})
 	.nthChild('15n', function() {
 		this.fillColor = 'yellow';
 	})
@@ -42,37 +26,16 @@ circle2
 		this.scale(0.5);
 	})
 	.tile();
-/*
-circle.clone({
-	scale: 0.5,
-	fillColor: 'blue'
-})
-	.nthChild(15, function() {
-		this.fillColor = 'yellow';
+
+
+circle.clone()
+	.set({
+		scale: 3,
+		fillColor: 'orange'
 	})
-	.nthChild(6, function() {
-		this.scale(0.5);
-	})
-	.tile();
-*/
-
-var circle3 = circle.clone();
-circle3.scale(3);
-circle3.style.fillColor = 'orange';
-
-circle3.tile(function(i) {
-
-	this.opacity = Math.min(Math.random(), 0.3);
-
-});
-/*
-circle.clone({
-	scale: 0.3,
-	fillColor: 'orange'
-}).tile(function() {
-	this.opacity = Math.min(Math.random(), 0.3);
-});
-*/
+	.tile(function(i) {
+		this.opacity = Math.min(Math.random(), 0.3);
+	});
 
 circle
 	.nthChild('14n', function() {
