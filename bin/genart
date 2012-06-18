@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var
-	genart = require('../lib/genart'),
+	genart = require('../src/genart'),
 	fs = require('fs'),
 	vm = require('vm'),
 	path = require('path'),

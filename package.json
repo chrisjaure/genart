@@ -1,7 +1,7 @@
 {
 	"name": "genart",
 	"description": "Generative art with canvas.",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"homepage": "https://github.com/chrisjaure/genart",
 	"author": {
 		"name": "Chris Jaure",
@@ -27,7 +27,7 @@
 		"node": ">= 0.6"
 	},
 	"dependencies": {
-		"paper": "https://github.com/chrisjaure/paper.js/tarball/master",
+		"paper": "git://github.com/chrisjaure/paper.js.git",
 		"underscore": ">= 1.3.3",
 		"optimist": ">= 0.3.4",
 		"canvas": ">= 0.12"
