@@ -1,15 +1,17 @@
 # genart
-
-Generative art for the rest of us. This is an attempt to create a nice api for creating generative art. Built on top of a modified [Paper.js](https://github.com/paperjs/paper.js).
+Generative art for the rest of us. This is an attempt to create a nice api for creating generative art. Built on top of a modified [Paper.js](https://github.com/paperjs/paper.js) to run on node.js.
 
 ## Getting Started
-Install the module with: `npm install genart`
+Install the module with: `npm install -g genart`
 
 Generate some art!
 
 ```
-genart -i ../examples/circle.js -o ~/genart.png
+genart -i path/to/examples/circles.js -o ~/genart.png
 ```
+
+Running that will produce a png similar to the following:
+![circles.js result](https://lh6.googleusercontent.com/U4wrsbUoaVqQDItY6vXSTJQcqqSxnMdPdpG7CpqPlEtk-LHpZtKrFGPNFIvOjJdxQtdrVs_XNwA)
 
 ## Documentation
 Since genart is simply extending paper.js, take a look at the [paper.js docs](http://paperjs.org/reference/) for more details.
@@ -35,9 +37,6 @@ var circle = new canvas.Path.Circle([0, 0], 50)
 	})
 	.tile();
 ```
-
-## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt](https://github.com/cowboy/grunt).
 
 ## License
 Copyright (c) 2012 Chris Jaure  
