@@ -11,7 +11,7 @@ genart -i path/to/examples/circles.js -o ~/genart.png
 ```
 
 Running that will produce a png similar to the following:
-![circles.js result](https://lh6.googleusercontent.com/U4wrsbUoaVqQDItY6vXSTJQcqqSxnMdPdpG7CpqPlEtk-LHpZtKrFGPNFIvOjJdxQtdrVs_XNwA)
+![circles.js result](http://cleverchris.com/genart.png)
 
 ## Documentation
 Since genart is simply extending paper.js, take a look at the [paper.js docs](http://paperjs.org/reference/) for more details.
