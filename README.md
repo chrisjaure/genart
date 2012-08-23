@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/chrisjaure/genart.png)](http://travis-ci.org/chrisjaure/genart)
 # genart
 Generative art for the rest of us. This is an attempt to create a nice api for creating generative art. Built on top of a modified [Paper.js](https://github.com/paperjs/paper.js) to run on node.js.
 
